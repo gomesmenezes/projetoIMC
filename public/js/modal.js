@@ -12,3 +12,11 @@ export const Modal = {
 }
 
 Modal.buttonClose.onclick = () => Modal.close()
+
+window.addEventListener('keydown', handleKeyDown)
+
+function handleKeyDown(event) {
+  if (event.key === 'Escape') {
+    Modal.close();
+  } 
+}
