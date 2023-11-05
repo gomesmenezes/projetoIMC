@@ -6,6 +6,9 @@ const form = document.querySelector('form');
 const inputWeight = document.querySelector('#weight');
 const inputHeight = document.querySelector('#height');
 
+inputHeight.oninput = () => alertError.close();
+inputWeight.oninput = () => alertError.close();
+
 form.onsubmit = (event) => {
   event.preventDefault();
 
@@ -22,10 +25,13 @@ form.onsubmit = (event) => {
   alertError.close();
 
   const result = CalculateIMC(weight, height);
+  displayResult(result)
+}
+
+function displayResult(result) {
   const message = `Seu IMC ideal é de ${result}`;
 
   Modal.message.innerText = message;
   Modal.open()
 }
-
 
